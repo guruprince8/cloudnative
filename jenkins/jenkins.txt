@@ -1,0 +1,75 @@
+/* Installation link digital ocean */
+wget -q -O - https://pkg.jenkins.io/debian-stable/jenkins.io.key | sudo apt-key add -
+sudo sh -c 'echo deb http://pkg.jenkins.io/debian-stable binary/ > /etc/apt/sources.list.d/jenkins.list'
+sudo apt update
+sudo apt install jenkins
+sudo systemctl start jenkins
+sudo systemctl status jenkins
+http://your_server_ip_or_domain:8080
+
+admin password
+/var/lib/jenkins/secrets/initialAdminPassword
+
+/* RHEL8 */
+https://devopscube.com/install-configure-jenkins-2-centos-redhat-servers/
+ sudo yum install wget git -y
+sudo yum install java-11-openjdk-devel -y
+sudo wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat/jenkins.repo
+sudo rpm --import https://jenkins-ci.org/redhat/jenkins-ci.org.key
+sudo yum --showduplicates list jenkins | expand
+sudo yum install jenkins -y
+sudo systemctl start jenkins
+sudo yum install jenkins -y
+/* Status Log */
+jenkins.service - Jenkins Continuous Integration Server
+   Loaded: loaded (/usr/lib/systemd/system/jenkins.service; disabled; vendor preset: disabled)
+   Active: active (running) since Sun 2022-10-02 18:46:19 IST; 7s ago
+ Main PID: 9782 (java)
+    Tasks: 58 (limit: 100388)
+   Memory: 1.8G
+   CGroup: /system.slice/jenkins.service
+           └─9782 /usr/bin/java -Djava.awt.headless=true -jar /usr/share/java/jenkins.war --webroot=/var/cache/jenkins/war --httpPort=8080
+
+Oct 02 18:46:02 guru-rhel8 jenkins[9782]: Please use the following password to proceed to installation:
+Oct 02 18:46:02 guru-rhel8 jenkins[9782]: edbab75471bd451fbc1026212e42a9c7
+Oct 02 18:46:02 guru-rhel8 jenkins[9782]: This may also be found at: /var/lib/jenkins/secrets/initialAdminPassword
+Oct 02 18:46:02 guru-rhel8 jenkins[9782]: *************************************************************
+Oct 02 18:46:19 guru-rhel8 jenkins[9782]: 2022-10-02 13:16:19.389+0000 [id=33]        INFO        jenkins.InitReactorRunner$1#onAttained: Completed initialization
+Oct 02 18:46:19 guru-rhel8 jenkins[9782]: 2022-10-02 13:16:19.433+0000 [id=24]        INFO        hudson.lifecycle.Lifecycle#onReady: Jenkins is fully up and running
+Oct 02 18:46:19 guru-rhel8 systemd[1]: Started Jenkins Continuous Integration Server.
+Oct 02 18:46:20 guru-rhel8 jenkins[9782]: 2022-10-02 13:16:20.128+0000 [id=60]        INFO        h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenI>
+Oct 02 18:46:20 guru-rhel8 jenkins[9782]: 2022-10-02 13:16:20.129+0000 [id=60]        INFO        hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+Oct 02 18:46:20 guru-rhel8 jenkins[9782]: 2022-10-02 13:16:20.131+0000 [id=60]        INFO        hudson.model.AsyncPeriodicWork#lambda$doRun$0: Finished Download metadata. 18,317 ms
+// log
+journalctl -u jenkins.service
+systemctl status jenkins.service
+https://docs.pega.com/devops/86/automating-deployment-pipelines-using-open-devops-solutions
+
+-- service file location
+/usr/lib/systemd/system/jenkins.service
+-- password location
+
+https://www.redhat.com/sysadmin/install-jenkins-rhel8
+
+
+# wget -O /etc/yum.repos.d/jenkins.repo http://pkg.jenkins-ci.org/redhat-stable/jenkins.repo
+# rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+
+(/usr/lib/systemd/system/jenkins.service;
+
+/var/lib/jenkins/secrets/initialAdminPassword
+-- jenkins configuration 
+/etc/sysconfig/jenkins
+
+
+-- uninstall 
+sudo yum remove jenkins
+
+--credentials 
+ pegaadmin / password
+
+ --url
+ http://guru-rhel8.local:8080/login?from=%2F
+
+ -- uninstall
+ 
