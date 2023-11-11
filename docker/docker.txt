@@ -1,0 +1,202 @@
+/***** UBUNTU *****/
+/* …or create a new repository on the command line */
+echo "# sample" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/guruprince8/sample.git
+git push -u origin main
+
+/* …or push an existing repository from the command line */
+
+git remote add origin https://github.com/guruprince8/sample.git
+git branch -M main
+git push -u origin main
+
+/* docker installation on ubuntu */
+
+//https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-on-ubuntu-20-04
+
+Step 1 — Installing Docker
+sudo apt update
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable"
+apt-cache policy docker-ce
+sudo apt install docker-ce
+sudo systemctl status docker
+
+Step 2 — Executing the Docker Command Without Sudo (Optional)
+sudo usermod -aG docker ${USER}
+su - ${USER}
+groups
+sudo usermod -aG docker username
+
+Step 3 — Using the Docker Command
+docker [option] [command] [arguments]
+docker
+docker docker-subcommand --help
+docker info
+
+Step 4 — Working with Docker Images
+docker run hello-world
+docker pull ubuntu
+docker images
+
+Step 5 — Running a Docker Container
+docker run -it ubuntu
+
+Step 6 — Managing Docker Containers
+docker ps
+docker ps -a
+docker ps -l
+docker start 1c08a7a0d0e4
+docker stop quizzical_mcnulty
+docker rm youthful_curie
+
+Step 7 — Committing Changes in a Container to a Docker Image
+docker commit -m "What you did to the image" -a "Author Name" container_id repository/new_image_name
+docker commit -m "added Node.js" -a "sammy" d9b100f2f636 sammy/ubuntu-nodejs
+docker images
+
+Step 8 — Pushing Docker Images to a Docker Repository
+docker login -u docker-registry-username
+docker tag sammy/ubuntu-nodejs docker-registry-username/ubuntu-nodejs
+docker push docker-registry-username/docker-image-name
+docker push sammy/ubuntu-nodejs
+
+/* minikube */
+/* install kubectl */
+https://kubernetes.io/docs/tasks/tools/install-kubectl-linux/ 
+
+curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+
+curl -LO https://dl.k8s.io/release/v1.23.0/bin/linux/amd64/kubectl
+
+curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+
+echo "$(<kubectl.sha256) kubectl" | sha256sum --check
+
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
+
+
+
+--kubernetes
+ -- worker node
+  --container runtime
+  --kubectl agent
+
+ --master node
+  --kube-api-server
+  --controller
+  --scheduler
+  --etcd
+
+  kubectl
+
+  -- setting kubernetes
+    --minikube /microk8s/kubeadm
+    -- aws/gcp/azure/kodecloud
+    --minikube
+      single image kubectl cluster
+      https://kubernetes.io
+      curl -LO "https://dl.k8s.io/release/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl"
+      curl -LO https://dl.k8s.io/release/v1.22.0/bin/linux/amd64/kubectl
+      curl -LO "https://dl.k8s.io/$(curl -L -s https://dl.k8s.io/release/stable.txt)/bin/linux/amd64/kubectl.sha256"
+      echo "$(<kubectl.sha256) kubectl" | sha256sum --check
+      -- minikube steps
+      https://minikube.sigs.k8s.io/docs/start/
+      curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+      sudo install minikube-linux-amd64 /usr/local/bin/minikube
+      grep -E --color 'vmx|svm' /proc/cpuinfo
+      minikube start
+      1c1c67c59cda   gcr.io/k8s-minikube/kicbase:v0.0.28   "/usr/local/bin/entr…"   3 minutes ago   Up 3 minutes
+      127.0.0.1:49157->22/tcp,
+      127.0.0.1:49156->2376/tcp,
+      127.0.0.1:49155->5000/tcp,
+      127.0.0.1:49154->8443/tcp,
+      127.0.0.1:49153->32443/tcp   minikube
+      minikube node add
+      kubectl create deployment hello-minikube --image=k8s.gcr.io/echoserver:1.4
+      kubectl expose deployment hello-minikube --type=NodePort --port=8080
+      kubectl get services hello-minikube
+      minikube service hello-minikube
+      kubectl port-forward service/hello-minikube 7080:8080
+      kubectl delete services hello-minikube
+      kubectl delete deployment  hello-minikube
+      kubectl get pods --namespace=default
+      -- pods
+      kubectl run nginx --image nginx
+      kubectl get pods -o wide
+      kubectl get pods --namespace default
+      --yml
+                Fruits:
+            - Apple
+            - Banana
+            - Orange
+          Vegetables:
+           - Carrot
+           - Tomato
+           - Cucumber
+
+
+
+ -- redis
+  docker run --name some-redis -d redis
+
+
+
+-- list of running containers
+docker ps
+
+-- list of images
+docker image ls
+
+-- run image
+docker run hello-world
+docker run -it hello-world
+
+-- tomcat run
+docker run -it -p 8080:8080 hello-world
+
+-- exec command
+docker exec -it b4c01a90f54b sh
+pwd
+
+-stop commands
+docker stop b4c01a90f54b
+docker kill b4c01a90f54b
+
+-- minikube
+minikube status
+minikube stop
+minikube start
+
+-- git commands
+…or create a new repository on the command line
+echo "# node-api" >> README.md
+git init
+git add README.md
+git commit -m "first commit"
+git branch -M main
+git remote add origin https://github.com/guruprince8/node-api.git
+git push -u origin main
+
+…or push an existing repository from the command line
+git remote add origin https://github.com/guruprince8/node-api.git
+git branch -M main
+git push -u origin main
+
+…or import code from another repository
+You can initialize this repository with code from a Subversion, Mercurial, or TFS project.
+
+
+-- pega installation on cloud
+https://github.com/pegasystems/pega-helm-charts#supported-kubernetes-environments
+-- helm charts
+curl https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3 > get_helm.sh
+--
+$ curl -LO https://storage.googleapis.com/kubernetes-release/release/`curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt`/bin/linux/amd64/kubectl
+
+curl -s https://storage.googleapis.com/kubernetes-release/release/stable.txt
