@@ -1,0 +1,65 @@
+/** link */
+https://computingforgeeks.com/how-to-install-jfrog-artifactory-on-ubuntu-linux/
+Step 1: Import repository GPG Key
+wget -qO - https://api.bintray.com/orgs/jfrog/keys/gpg/public.key | sudo apt-key add -
+Step 2: Add JFrog Artifactory to Ubuntu 20.04
+echo "deb https://jfrog.bintray.com/artifactory-debs focal main" | sudo tee /etc/apt/sources.list.d/jfrog.list
+sudo apt update
+Step 3: Install JFrog Artifactory on Ubuntu 20.04
+sudo apt install jfrog-artifactory-oss
+sudo systemctl start artifactory.service
+sudo systemctl enable artifactory.service
+systemctl status artifactory.service
+Step 4: Access Artifactory Web Interface
+http://SERVERIP_OR_DOMAIN:8081/artifactory
+
+-- un install
+sudo apt remove jfrog-artifactory-oss
+
+
+- RHEL 8
+https://jfrog.com/artifactory/install/
+mkdir /opt/jfrog
+cd /opt/jfrog
+wget -O artifactory-pro.rpm "https://releases.jfrog.io/artifactory/artifactory-pro-rpms/jfrog-artifactory-pro/jfrog-artifactory-pro-[RELEASE].rpm"
+sudo yum install ./artifactory-pro.rpm -y
+
+
+Installation directory was set to /opt/jfrog/artifactory
+You can find more information in the log directory /opt/jfrog/artifactory/var/log
+System configuration templates can be found under /opt/jfrog/artifactory/var/etc
+Copy any configuration you want to modify from the template to /opt/jfrog/artifactory/var/etc/system.yaml
+
+sudo systemctl status artifactory.service
+sudo systemctl start artifactory.service
+
+systemctl stop artifactory.service
+yum erase jfrog-artifactory-pro
+
+https://jfrog.com/community/download-artifactory-oss/
+
+https://www.centlinux.com/2019/01/install-jfrog-artifactory-on-centos-rhel-7.html
+wget https://releases.jfrog.io/artifactory/artifactory-rpms/artifactory-rpms.repo -O jfrog-artifactory-rpms.repo;
+sudo mv jfrog-artifactory-rpms.repo /etc/yum.repos.d/;
+sudo yum update && sudo yum install jfrog-artifactory-oss
+
+curl -uaccess-admin:password http://localhost:8081/artifactory/api/access/api/v1/users/admin
+
+https://jfrog.com/knowledge-base/how-to-connect-to-a-derby-db-and-run-different-queries/
+
+https://archive.apache.org/dist/db/derby/db-derby-10.14.2.0/
+
+connect 'jdbc:derby:/var/opt/jfrog/artifactory/data/artifactory/derby;create=true';
+
+ select user_id,password, allowed_ips,status from access_users;
+
+ update access_users set allowed_ips='*' where username='admin';
+
+
+-- users 
+  -- admin / September@2022
+  http://guru-rhel8.local:8081/artifactory/
+
+  -- uninstall
+  systemctl stop artifactory.service
+  yum erase jfrog-artifactory-oss
