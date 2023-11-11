@@ -1,1 +1,8 @@
+-- Developer Explorer of Graph API's
+1. https://developer.microsoft.com/en-us/graph/graph-explorer
 
+-- oAuth Authentication
+2. https://docs.microsoft.com/en-us/graph/auth-v2-service
+
+-- Graph API Reference
+https://docs.microsoft.com/en-us/graph/api/overview?view=graph-rest-1.0
