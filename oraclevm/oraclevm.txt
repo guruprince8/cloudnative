@@ -1,1 +1,57 @@
+/* Summary */
+ipaddress           hostname
+192.168.1.153       DESKTOP-TCKVU49 
+192.168.1.158       WIN-UFTC2JNTLM8
+192.168.1.159       guru-dc1
+
+/* Windows 10 */
+ Connection-specific DNS Suffix  . : attlocal.net
+ IPv6 Address. . . . . . . . . . . : 2600:1700:e901:e6e0::20
+ IPv6 Address. . . . . . . . . . . : 2600:1700:e901:e6e0:fafb:7320:318e:c6cf
+ Link-local IPv6 Address . . . . . : fe80::586b:645a:13b:9c35%14
+ IPv4 Address. . . . . . . . . . . : 192.168.1.153
+ Subnet Mask . . . . . . . . . . . : 255.255.255.0
+ Default Gateway . . . . . . . . . : fe80::d2fc:d0ff:fe32:b111%14
+                                     192.168.1.254
+ Host Name                           DESKTOP-TCKVU49
+
+/* Windows Server 2022 */
+Ethernet adapter NIC4:
+
+   Connection-specific DNS Suffix  . : attlocal.net
+   IPv6 Address. . . . . . . . . . . : 2600:1700:e901:e6e0::36
+   IPv6 Address. . . . . . . . . . . : 2600:1700:e901:e6e0:facf:abd2:2650:9a6c
+   Link-local IPv6 Address . . . . . : fe80::1232:b2cc:60a8:6605%12
+   IPv4 Address. . . . . . . . . . . : 192.168.1.158
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Default Gateway . . . . . . . . . : fe80::d2fc:d0ff:fe32:b111%12
+                                      192.168.1.254
+
+   Host Name                          WIN-UFTC2JNTLM8
+
+/* Ubuntu Host - Virutal Machine 1 */
+
+enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
+        inet 192.168.1.159  netmask 255.255.255.0  broadcast 192.168.1.255
+        inet6 2600:1700:e901:e6e0::31  prefixlen 128  scopeid 0x0<global>
+        inet6 2600:1700:e901:e6e0:b202:8e5d:32f9:de32  prefixlen 64  scopeid 0x0<global>
+        inet6 2600:1700:e901:e6e0:8523:524b:ec0f:f2ba  prefixlen 64  scopeid 0x0<global>
+        inet6 fe80::e520:6cbf:e6fe:d148  prefixlen 64  scopeid 0x20<link>
+        ether 08:00:27:db:ac:24  txqueuelen 1000  (Ethernet)
+        RX packets 7938  bytes 669597 (669.5 KB)
+        RX errors 0  dropped 1649  overruns 0  frame 0
+        TX packets 1062  bytes 128250 (128.2 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+lo: flags=73<UP,LOOPBACK,RUNNING>  mtu 65536
+        inet 127.0.0.1  netmask 255.0.0.0
+        inet6 ::1  prefixlen 128  scopeid 0x10<host>
+        loop  txqueuelen 1000  (Local Loopback)
+        RX packets 184  bytes 15187 (15.1 KB)
+        RX errors 0  dropped 0  overruns 0  frame 0
+        TX packets 184  bytes 15187 (15.1 KB)
+        TX errors 0  dropped 0 overruns 0  carrier 0  collisions 0
+
+Host Name guru-dc1
+
 
