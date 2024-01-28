@@ -29,7 +29,7 @@ Ethernet adapter NIC4:
 
    Host Name                          WIN-UFTC2JNTLM8
 
-/* Ubuntu Host - Virutal Machine 1 */
+/* Ubuntu Host - Virtual Machine 1 */
 
 enp0s3: flags=4163<UP,BROADCAST,RUNNING,MULTICAST>  mtu 1500
         inet 192.168.1.159  netmask 255.255.255.0  broadcast 192.168.1.255
