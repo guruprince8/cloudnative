@@ -63,3 +63,7 @@ connect 'jdbc:derby:/var/opt/jfrog/artifactory/data/artifactory/derby;create=tru
   -- uninstall
   systemctl stop artifactory.service
   yum erase jfrog-artifactory-oss
+
+-- kill jfrog service
+ps -ef | grep java | grep artifactory | grep tomcat
+kill -9 6525
